@@ -1,34 +1,12 @@
 import "package:flutter/material.dart";
+import 'package:adv_basics/gradient_container.dart';
 
-void hoge() {}
 void main() {
-  runApp(MaterialApp(
+  runApp(const MaterialApp(
     home: Scaffold(
-      body: Container(
-        color: const Color.fromRGBO(108, 51, 206, 1),
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            Image.asset(
-              'assets/images/quiz-logo.png',
-              width: 200,
-            ),
-            const Text(
-              "Learn Flutter the fun way!",
-              style: TextStyle(
-                color: Colors.white,
-              ),
-            ),
-            TextButton(
-              onPressed: hoge,
-              style: TextButton.styleFrom(
-                foregroundColor: Colors.white,
-                textStyle: const TextStyle(fontSize: 10),
-              ),
-              child: Text("Start Quiz"),
-            ),
-          ],
-        ),
+      body: GradientContainer(
+        Color.fromRGBO(9, 1, 23, 1),
+        Color.fromARGB(255, 46, 7, 66),
       ),
     ),
   ));
