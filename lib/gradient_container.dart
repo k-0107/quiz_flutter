@@ -3,47 +3,43 @@ import 'package:flutter/material.dart';
 void hoge() {}
 
 class GradientContainer extends StatelessWidget {
-  const GradientContainer(this.color1, this.color2, {super.key});
-  final Color color1;
-  final Color color2;
+  const GradientContainer(this.startQuiz, {super.key});
+
+  final void Function() startQuiz;
+
   @override
   Widget build(BuildContext context) {
-    return Container(
-      decoration: BoxDecoration(
-        gradient: LinearGradient(
-          colors: [color1, color2],
-        ),
-      ),
-      child: Center(
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            Image.asset(
-              'assets/images/quiz-logo.png',
-              width: 200,
+    return Center(
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          Image.asset(
+            'assets/images/quiz-logo.png',
+            width: 200,
+            color: const Color.fromARGB(150, 255, 255, 255),
+          ),
+          const SizedBox(
+            height: 30,
+          ),
+          const Text(
+            "Learn Flutter the fun way!",
+            style: TextStyle(
+              color: Colors.white,
             ),
-            const SizedBox(
-              height: 30,
+          ),
+          const SizedBox(
+            height: 30,
+          ),
+          OutlinedButton.icon(
+            onPressed: startQuiz,
+            style: OutlinedButton.styleFrom(
+              foregroundColor: Colors.white,
+              textStyle: const TextStyle(fontSize: 20),
             ),
-            const Text(
-              "Learn Flutter the fun way!",
-              style: TextStyle(
-                color: Colors.white,
-              ),
-            ),
-            const SizedBox(
-              height: 30,
-            ),
-            TextButton(
-              onPressed: hoge,
-              style: TextButton.styleFrom(
-                foregroundColor: Colors.white,
-                textStyle: const TextStyle(fontSize: 20),
-              ),
-              child: const Text("Start Quiz"),
-            ),
-          ],
-        ),
+            icon: const Icon(Icons.arrow_right_alt),
+            label: const Text("Start Quiz"),
+          ),
+        ],
       ),
     );
   }
